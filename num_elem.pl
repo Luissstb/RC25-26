@@ -5,7 +5,14 @@
    número de elementos de Lista.
    
 Principio de inducción
-1. num_elem([], ).
+1. num_elem([],0).
 2. num_elem(n-1) -> num_elem(n)
 
 */
+
+
+num_elem([],0).
+
+num_elem([_|Resto],N2)  :- num_elem(Resto,N), N2 is N+1.
+
+
