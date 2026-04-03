@@ -12,11 +12,11 @@ si usas append la lista resultante sale ordenada de menor a mayor.
 
 
 
-lista_divisores(_,1,[1]).
+lista_divisores(_, 1, [1]).
 
-lista_divisores(X,Y, [Y|Lista_divisores] ) :- Y>1,0 is X mod Y, Y2 is Y-1, lista_divisores(X, Y2, Lista_divisores).
+lista_divisores(X, Y, [Y|Lista_divisores]) :- Y > 1, 0 is X mod Y, Y2 is Y - 1, lista_divisores(X, Y2, Lista_divisores).
 
-lista_divisores(X,Y, [Y|Lista_divisores] ) :- Y>1, \+ 0 is X mod Y, Y2 is Y-1, lista_divisores(X, Y2, Lista_divisores).
+lista_divisores(X, Y, Lista_divisores) :- Y > 1, \+ 0 is X mod Y, Y2 is Y - 1, lista_divisores(X, Y2, Lista_divisores).
 
 
 
@@ -27,7 +27,7 @@ primo(+X) es cierto si X unifica con un numero primo.
 */
 
 
-primo(X) :- lista_divisores(X,X,[X,1]).
+primo(X) :- X > 1, lista_divisores(X, X, [X, 1]).
 
 
 
@@ -38,12 +38,11 @@ primosEntrexy(+X,+Y, -ListaR) es cierto cuando ListaR unifica con una lista que 
 */
 
 
-primosEntrexy(X,X,[X]):- primo(X).
+primosEntrexy(X, X, [X]) :- primo(X).
 
-primosEntrexy(X,X,[]):- \+ primo(X).
+primosEntrexy(X, X, []) :- \+ primo(X).
 
-primosEntrexy(X,Y, R2):- primo(X),X<Y, X2 is X+1, primosEntrexy(X2,Y,R), append([X],R,R2).
+primosEntrexy(X, Y, [X|R]) :- X < Y, primo(X), X2 is X + 1, primosEntrexy(X2, Y, R).
 
-primosEntrexy(X,Y, R):- \+ primo(X),X<Y, X2 is X+1, primosEntrexy(X2,Y,R).
-
+primosEntrexy(X, Y, R) :- X < Y, \+ primo(X), X2 is X + 1, primosEntrexy(X2, Y, R).
 
