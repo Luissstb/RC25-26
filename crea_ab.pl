@@ -11,6 +11,8 @@
 
 */
 
+arbol1(a(1, a(2,nil,nil), a(3,nil, a(4,nil,nil)) )).
+
 crea_ab(ListaEtiquetas, ArbolBinario) : is_list(ListaEtiquetas), !, construir_arbol_balanceado(ListaEtiquetas, ArbolBinario).
 
 crea_ab(N, ArbolBinario) :- integer(N), N >= 0, !, (   N =:= 0->  Lista = [] ;   findall(X, between(1, N, X), Lista) ), construir_arbol_balanceado(Lista, ArbolBinario).
