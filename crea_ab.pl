@@ -1,14 +1,13 @@
-
-
-
 /*
 
  crea_ab(+ListaEtiquetas, -ArbolBinario) es cierto cuando ArbolBinario unifica con un arbol binario BALANCEADO que contiene solo las etiquetas de ListaEtiquetas
  
- 
  variante:
  
  crea_ab(+N, -ArbolBinario) es cierto cuando ArbolBinario unifica con un arbol binario BALANCEADO que contiene todas las etiquetas sin repeticion desde 1 a N
+
+
+ construir_arbol_balanceado(+ArbolBinario) es cierto si ArbolBinario unifica con un arbol binario que para todo nodo la diferencia entre la altura del arbol izquierdo y derecho es como maximo 1
 
 */
 
